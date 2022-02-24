@@ -1,13 +1,52 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --global-font: 'Montserrat', sans-serif;
+
+    /* Font Sizes | Global */
+    --text-xxxl: 48px;
+    --text-xxl: 40px;
+    --text-xl: 36px;
+    --text-lg: 24px;
+    --text-md: 18px;
+    --text-sm: 12px;
+    --text-xs: 10px;
+
+    /* Colors | Global */
+    --white: #ffffff;
+    --black: #000000;
+    --brown-1: #291507;
+    --brown-2: rgba(41, 21, 7, 0.6);
+    --brown-3: #4d270c;
+    --brown-4: #544439;
+    --grey-1: #e3e1dc;
+    --grey-2: #e0e0e0;
+    --bg-hover: rgba(151, 151, 151, 0.1);
+
+    /* Spacing | Global */
+    --space-unit: 1em;
+    --space-sm: calc(0.7 * var(--space-unit));
+    --space-md: calc(1.7 * var(--space-unit));
+    --space-lg: calc(3 * var(--space-unit));
+    --space-xl: calc(6 * var(--space-unit));
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: var(--global-font);
+    background: grey;
+}
+
+.material-icons {
+    font-size: 23px;
+    color: var(--brown-1);
 }

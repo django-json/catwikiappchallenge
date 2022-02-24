@@ -1,0 +1,83 @@
+.input-container {
+    width: 400px;
+    position: relative;
+}
+
+.input {
+    font-family: var(--global-font);
+    font-weight: 500;
+    font-size: var(--text-md);
+    color: var(--brown-1);
+    padding: var(--space-sm) 20px;
+    padding-right: 50px;
+    border: none;
+    border-radius: 59px;
+    outline: none;
+    width: 100%;
+}
+
+.input::placeholder {
+    font-family: var(--global-font);
+    font-weight: 500;
+    font-size: var(--text-md);
+    color: var(--brown-1);
+}
+
+.input ~ .material-icons {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+
+/* Size | Small */
+.input--sm {
+    font-size: var(--text-sm);
+    padding: 8px 14px;
+    padding-right: 30px;
+}
+
+.input--sm::placeholder {
+    font-size: var(--text-sm);
+}
+
+.input--sm ~ .material-icons {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    font-size: 14px;
+}
+
+/* Size | Medium */
+
+.input--md {
+    padding: var(--space-sm) 20px;
+    padding-right: 50px;
+}
+
+.input--md::placeholder {
+    font-size: var(--text-md);
+}
+
+.input--md ~ .material-icons {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+
+/* Size | Large */
+
+.input--lg {
+    padding: calc(0.8 * var(--space-md)) var(--space-md);
+    padding-right: 60px;
+}
+
+.input--lg ~ .material-icons {
+    position: absolute;
+    top: 25px;
+    right: 26px;
+}
+
+/* Width */
+.input-container--full-width {
+    width: 100%;
+}
