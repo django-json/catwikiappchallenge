@@ -19,7 +19,7 @@ function Input({
     fullWidth,
     onChange
 }) {
-    const classes = classNames('input', {
+    const inputClasses = classNames('input', {
         [`input--${size}`]: size
     });
 
@@ -27,11 +27,15 @@ function Input({
         'input-container--full-width': fullWidth
     });
 
+    function shouldRenderEndIcon(endIcon) {
+        return endIcon ? <i className="material-icons">{endIcon}</i> : null;
+    }
+
     return (
         <div className={inputContainerClasses}>
             <div className="input-wrapper">
                 <input
-                    className={classes}
+                    className={inputClasses}
                     type={type}
                     name={name}
                     id={id}
@@ -39,7 +43,7 @@ function Input({
                     placeholder={placeholder}
                     onChange={onChange}
                 />
-                {endIcon && <i className="material-icons">{endIcon}</i>}
+                {shouldRenderEndIcon(endIcon)}
             </div>
         </div>
     );
