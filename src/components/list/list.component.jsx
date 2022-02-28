@@ -1,4 +1,5 @@
 import React, { createElement } from 'react';
+import classNames from 'classnames';
 
 import './list.styles.css';
 
@@ -9,8 +10,9 @@ const defaultProps = {
 };
 
 function List({ items, itemRenderer, className, ...props }) {
+    const classes = classNames('list', className);
     return (
-        <ul className={`${className} list`}>
+        <ul className={classes}>
             {items.map((item, index) => {
                 // //Create id if none
                 // if (!item.hasOwnProperty('id')) {
