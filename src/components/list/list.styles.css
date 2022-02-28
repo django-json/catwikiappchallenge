@@ -1,0 +1,17 @@
+.list {
+    max-height: 220px;
+    overflow-y: scroll;
+}
+
+.list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: var(--white-2);
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: var(--grey-1);
+    border-radius: 24px;
+}
