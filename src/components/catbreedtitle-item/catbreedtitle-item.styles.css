@@ -1,0 +1,12 @@
+.catbreedtitle-item {
+    font-weight: 500;
+    font-size: var(--text-md);
+    list-style-type: none;
+    padding: var(--space-sm);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.catbreedtitle-item:hover {
+    background-color: var(--bg-hover);
+}
