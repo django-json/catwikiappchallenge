@@ -27,7 +27,7 @@ function Input({
         'input-container--full-width': fullWidth
     });
 
-    function shouldRenderEndIcon(endIcon) {
+    function shouldRenderEndIcon() {
         return endIcon ? <i className="material-icons">{endIcon}</i> : null;
     }
 
@@ -43,7 +43,7 @@ function Input({
                     placeholder={placeholder}
                     onChange={onChange}
                 />
-                {shouldRenderEndIcon(endIcon)}
+                {shouldRenderEndIcon()}
             </div>
         </div>
     );

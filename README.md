@@ -83,9 +83,8 @@ $ npm start
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
--   [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
--   [Node.js](https://nodejs.org/)
--   [Marked - a markdown parser](https://github.com/chjj/marked)
+-   [CSS - Custom Scrollbar](https://css-tricks.com/almanac/properties/s/scrollbar/)
+-   [How to render different components based on screen size](https://dev.to/yanns1/how-to-render-different-components-based-on-screen-size-2p35)
 
 ## Contact
 

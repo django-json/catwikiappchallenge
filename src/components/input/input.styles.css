@@ -81,3 +81,10 @@
 .input-container--full-width {
     width: 100%;
 }
+
+@media (max-width: 767.98px) {
+    .input-container {
+        width: 100%;
+        position: relative;
+    }
+}
