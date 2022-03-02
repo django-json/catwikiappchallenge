@@ -1,0 +1,17 @@
+.level {
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+    height: 12px;
+}
+
+.level__bar {
+    width: 60px;
+    height: 12px;
+    background-color: var(--grey-3);
+    border-radius: 8px;
+}
+
+.level__bar--active {
+    background-color: var(--brown-4);
+}
