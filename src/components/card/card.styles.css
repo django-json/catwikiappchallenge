@@ -1,0 +1,13 @@
+.card__image-container {
+    margin-bottom: var(--space-sm);
+}
+
+.card__image {
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.card__title {
+    font-weight: 600;
+    font-size: var(--text-md);
+}
