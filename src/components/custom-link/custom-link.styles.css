@@ -17,11 +17,28 @@
 
 .custom-link__link:hover,
 .custom-link__link:focus {
-    text-decoration: underline;
+    color: var(--brown-1);
+    transition: ease-in-out 0.3s;
+}
+
+.custom-link__link:hover + .material-icons,
+.custom-link__link:focus + .material-icons {
+    color: var(--brown-1);
+    transition: ease-in-out 0.3s;
 }
 
 .custom-link .material-icons {
     font-size: 28px;
     color: var(--brown-2);
     margin-left: 5px;
+}
+
+@media (max-width: 768.98px) {
+    .custom-link__link {
+        font-size: var(--text-xs);
+    }
+
+    .custom-link .material-icons {
+        font-size: 16px;
+    }
 }
