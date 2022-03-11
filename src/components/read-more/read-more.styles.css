@@ -1,0 +1,110 @@
+.read-more {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xl);
+    height: auto;
+}
+
+.read-more__col:nth-child(1) {
+    align-self: center;
+    flex: 0 0 max(28%, 450px);
+    margin-right: var(--space-lg);
+}
+
+.read-more__why {
+    display: inline-block;
+    font-weight: 700;
+    font-size: var(--text-xxxl);
+    position: relative;
+    padding-top: 1rem;
+    margin-bottom: var(--space-sm);
+}
+
+.read-more__why::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 67px;
+    height: 3px;
+    background-color: var(--brown-1);
+    border-radius: 77px;
+}
+
+.read-more__reason {
+    font-weight: 500;
+    font-size: var(--text-md);
+    margin-bottom: var(--space-lg);
+}
+
+.read-more__col:nth-child(2) {
+    flex: 0 1 55%;
+    display: grid;
+    grid-template-columns: 0.2fr 0.83fr 1fr;
+    grid-template-areas:
+        'photo2 photo2 photo3'
+        '. photo1 photo3'
+        '. photo1 .';
+    column-gap: 20px;
+    row-gap: 18px;
+    justify-content: end;
+}
+
+.read-more__image > img {
+    width: 100%;
+}
+
+.read-more__image:nth-child(1) {
+    grid-area: photo1;
+}
+
+.read-more__image:nth-child(2) {
+    grid-area: photo2;
+}
+
+.read-more__image:nth-child(3) {
+    grid-area: photo3;
+}
+
+@media (max-width: 1199px) {
+    .read-more {
+        display: block;
+    }
+
+    .read-more__col:nth-child(1) {
+        width: min(100%, 450px);
+        margin-bottom: var(--space-lg);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .read-more {
+        padding: var(--space-lg);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .read-more {
+        padding: var(--space-lg) 0;
+        padding-bottom: var(--space-sm);
+    }
+
+    .read-more__why::after {
+        width: 55px;
+    }
+
+    .read-more__why {
+        font-size: var(--text-xxl);
+    }
+
+    .read-more__reason {
+        margin-bottom: var(--space-sm);
+    }
+}
+
+@media (max-width: 374.98px) {
+    .read-more__col:nth-child(2) {
+        column-gap: 12px;
+        row-gap: 10px;
+    }
+}
