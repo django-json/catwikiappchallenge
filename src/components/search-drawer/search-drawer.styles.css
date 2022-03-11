@@ -1,0 +1,190 @@
+.search-drawer {
+    margin-top: var(--space-md);
+}
+
+.search-drawer__row {
+    padding: var(--space-xl);
+}
+
+.search-drawer__row:first-child {
+    background-image: url('../../assets/images/heroimagemd.png');
+    background-size: cover;
+    border-top-left-radius: 48px;
+    border-top-right-radius: 48px;
+}
+
+.search-drawer__logo {
+    display: block;
+    width: 310px;
+    height: auto;
+}
+
+.search-drawer__logo path {
+    fill: var(--white-1);
+}
+
+.search-drawer__logo + p {
+    display: inline-block;
+    font-weight: 500;
+    font-size: var(--text-lg);
+    color: var(--white-1);
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+    width: 400px;
+}
+
+/* Mobile search button style*/
+
+.search-drawer__search-static {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: 8px 14px;
+    background-color: var(--white-1);
+    border-radius: 59px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-drawer__search-static {
+    color: var(--brown-1);
+}
+
+.search-drawer__search-static > .material-icons {
+    font-size: 16px;
+}
+
+/* Most Searched Breeds */
+
+.search-drawer__row:last-child {
+    padding-top: var(--space-md);
+    background-color: var(--grey-2);
+    border-bottom-left-radius: 48px;
+    border-bottom-right-radius: 48px;
+}
+
+.search-drawer__most-searched {
+    font-weight: 500;
+    font-size: var(--text-md);
+    color: var(--brown-1);
+    margin-bottom: var(--space-md);
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.search-drawer__most-searched::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    border-bottom: 4px solid var(--brown-3);
+    border-radius: 77px;
+}
+
+.search-drawer__discover-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 45px;
+}
+
+.search-drawer__discover {
+    font-weight: 700;
+    font-size: var(--text-xxxl);
+    color: var(--brown-1);
+    width: 500px;
+}
+
+@media (max-width: 1345px) {
+    .search-drawer__discover-container {
+        display: block;
+    }
+
+    .search-drawer__discover {
+        margin-bottom: var(--space-xs);
+    }
+}
+
+@media (min-width: 992px) {
+    .search-drawer__row:first-child {
+        background-image: url('../../assets/images/heroimagelg.png');
+    }
+}
+
+@media (max-width: 991.98px) {
+    .search-drawer__row {
+        padding: var(--space-lg);
+    }
+
+    .search-drawer__row:first-child {
+        background-image: url('../../assets/images/heroimagemd.png');
+    }
+}
+
+@media (max-width: 767.98px) {
+    .search-drawer__row {
+        padding: var(--space-md);
+        padding-bottom: var(--space-lg);
+    }
+
+    .search-drawer__logo {
+        width: 110px;
+    }
+
+    .search-drawer__logo + p {
+        font-size: var(--text-xs);
+        width: 130px;
+    }
+
+    .search-drawer__row:first-child {
+        background-image: url('../../assets/images/heroimagesm.png');
+        padding-bottom: 40px;
+    }
+
+    .search-drawer__most-searched {
+        font-size: var(--text-sm);
+    }
+
+    .search-drawer__most-searched::after {
+        width: 40px;
+    }
+
+    .search-drawer__discover-container {
+        margin-bottom: 30px;
+    }
+
+    .search-drawer__discover {
+        font-size: var(--text-md);
+        width: 200px;
+    }
+}
+
+@media (max-width: 374.98px) {
+    .search-drawer__col {
+        margin-top: var(--space-sm);
+    }
+
+    .search-drawer__row {
+        padding: var(--space-sm);
+    }
+
+    .search-drawer__row:first-child {
+        border-top-left-radius: var(--space-md);
+        border-top-right-radius: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+
+    .search-drawer__row:last-child {
+        border-bottom-left-radius: var(--space-md);
+        border-bottom-right-radius: var(--space-md);
+        padding-top: 18px;
+        padding-bottom: var(--space-md);
+    }
+
+    .search-drawer__catbreeds-preview-container {
+        display: flex;
+        justify-content: center;
+    }
+}
