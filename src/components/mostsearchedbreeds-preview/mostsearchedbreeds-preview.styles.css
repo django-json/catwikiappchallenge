@@ -1,0 +1,49 @@
+.mostsearchedbreeds-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    gap: var(--space-md);
+    justify-content: space-between;
+    position: relative;
+    z-index: 99;
+}
+
+.mostsearchedbreeds-preview::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    width: 45px;
+    height: 175px;
+    background-color: var(--orange);
+    border-radius: 14px;
+    z-index: -1;
+}
+
+@media (max-width: 1345px) {
+    .mostsearchedbreeds-preview {
+        column-gap: var(--space-md);
+        row-gap: 35px;
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 768.98px) {
+    .mostsearchedbreeds-preview {
+        grid-template-columns: repeat(2, 135px);
+        column-gap: var(--space-sm);
+        row-gap: 18px;
+    }
+
+    .mostsearchedbreeds-preview::before {
+        top: 15px;
+        left: -5px;
+        width: 32px;
+        height: 105px;
+    }
+
+    .mostsearchedbreeds-preview .card__image {
+        width: 135px;
+        height: 135px;
+        border-radius: 12px;
+    }
+}
