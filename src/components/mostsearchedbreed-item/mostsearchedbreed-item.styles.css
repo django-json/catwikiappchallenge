@@ -1,0 +1,51 @@
+.mostsearchedbreed-item {
+    display: flex;
+    margin-bottom: var(--space-lg);
+}
+
+.mostsearchedbreed-item > .card {
+    margin-right: var(--space-lg);
+}
+
+.mostsearchedbreed-item .card__image {
+    width: 170px;
+    height: 170px;
+}
+
+.mostsearchedbreed-item__title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+}
+
+.mostsearchedbreed-item__description {
+    font-size: var(--text-md);
+    font-weight: 500;
+}
+
+@media (max-width: 768.98px) {
+    .mostsearchedbreed-item__title {
+        font-size: var(--text-lg);
+    }
+
+    .mostsearchedbreed-item__description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .mostsearchedbreed-item {
+        display: block;
+        margin-bottom: var(--space-lg);
+    }
+
+    .mostsearchedbreed-item > .card {
+        margin-right: 0;
+    }
+
+    .mostsearchedbreed-item .card__image {
+        width: 298px;
+        height: 298px;
+        margin-bottom: var(--space-sm);
+    }
+}
