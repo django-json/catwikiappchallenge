@@ -1,0 +1,10 @@
+.mostsearchedbreeds-page {
+    margin-bottom: var(--space-xl);
+}
+
+.mostsearchedbreeds-page__heading {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--brown-1);
+    margin-bottom: var(--space-md);
+}
