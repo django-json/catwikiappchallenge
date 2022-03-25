@@ -1,21 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './mostsearchedbreed-item.styles.css';
 
 import Card from '../card/card.component';
 
-function MostSearchedBreedItem() {
+function MostSearchedBreedItem({ item }) {
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate(`../breed-details/${item.id}`);
+    }
+
     return (
-        <div className="mostsearchedbreed-item">
-            <Card />
+        <div className="mostsearchedbreed-item" onClick={handleClick}>
+            <Card photoURL={item.image.url} />
             <div>
-                <div className="mostsearchedbreed-item__title">1. Bengal</div>
+                <div className="mostsearchedbreed-item__title">{item.name}</div>
                 <div className="mostsearchedbreed-item__description">
-                    Bengals are a lot of fun to live with, but they're
-                    definitely not the cat for everyone, or for first-time cat
-                    owners. Extremely intelligent, curious and active, they
-                    demand a lot of interaction and woe betide the owner who
-                    doesn't provide it.
+                    {item.description}
                 </div>
             </div>
         </div>

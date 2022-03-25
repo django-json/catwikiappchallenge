@@ -1,6 +1,7 @@
 .mostsearchedbreed-item {
     display: flex;
     margin-bottom: var(--space-lg);
+    cursor: pointer;
 }
 
 .mostsearchedbreed-item > .card {
