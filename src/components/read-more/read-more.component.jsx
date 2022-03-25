@@ -14,7 +14,14 @@ function ReadMore() {
                     calming chemicals in your body which lower your stress and
                     anxiety levels
                 </div>
-                <CustomLink endIcon="arrow_right_alt">read more</CustomLink>
+                <CustomLink
+                    variant="external"
+                    target="_blank"
+                    to="https://freshpet.com/blog/10-reasons-why-cats-make-great-pets/"
+                    endIcon="arrow_right_alt"
+                >
+                    read more
+                </CustomLink>
             </div>
             <div className="read-more__col">
                 <div className="read-more__image">
