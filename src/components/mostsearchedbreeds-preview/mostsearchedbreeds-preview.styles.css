@@ -4,7 +4,7 @@
     gap: var(--space-md);
     justify-content: space-between;
     position: relative;
-    z-index: 99;
+    z-index: 1;
 }
 
 .mostsearchedbreeds-preview::before {
@@ -17,6 +17,10 @@
     background-color: var(--orange);
     border-radius: 14px;
     z-index: -1;
+}
+
+.mostsearchedbreeds-preview .card {
+    cursor: pointer;
 }
 
 @media (max-width: 1345px) {
