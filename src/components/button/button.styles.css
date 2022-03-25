@@ -1,0 +1,8 @@
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding: var(--space-xs);
+    cursor: pointer;
+}
