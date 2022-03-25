@@ -2,10 +2,6 @@
     display: inline-block;
 }
 
-.card__image-container {
-    margin-bottom: var(--space-sm);
-}
-
 .card__image {
     width: 220px;
     height: 220px;
@@ -16,14 +12,12 @@
 .card__title {
     font-weight: 600;
     font-size: var(--text-md);
+    margin-top: var(--space-sm);
 }
 
 @media (max-width: 768.98px) {
-    .card__image-container {
-        margin-bottom: var(--space-xs);
-    }
-
     .card__title {
         font-size: var(--text-sm);
+        margin-top: var(--space-xs);
     }
 }
