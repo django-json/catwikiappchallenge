@@ -15,13 +15,13 @@ function List({ items, itemRenderer, className, ...props }) {
         <ul className={classes}>
             {items.map((item, index) => {
                 // //Create id if none
-                // if (!item.hasOwnProperty('id')) {
-                //     item.id = index;
-                // }
+                if (!item.hasOwnProperty('id')) {
+                    item.id = index;
+                }
 
                 // Set new props for the item renderer
                 const newProps = Object.assign(
-                    { key: index },
+                    { key: item.id },
                     { item },
                     {
                         ...props
