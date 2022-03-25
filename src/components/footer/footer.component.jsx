@@ -3,11 +3,14 @@ import React from 'react';
 import './footer.styles.css';
 
 import { ReactComponent as Logo } from '../../assets/images/catwikilogo.svg';
+import CustomLink from '../custom-link/custom-link.component';
 
 function Footer() {
     return (
         <div className="footer">
-            <Logo className="footer__logo" />
+            <CustomLink to=".">
+                <Logo className="footer__logo" />
+            </CustomLink>
             <p className="footer__copyright">
                 <span>created by </span>
                 <a
