@@ -7,17 +7,36 @@ const defaultProps = {
     to: '/'
 };
 
-function CustomLink({ to, endIcon, children }) {
+function CustomLink({ to, endIcon, variant, target, children }) {
     function shouldRenderIcon() {
         return endIcon ? <i className="material-icons">{endIcon}</i> : null;
+    }
+
+    function shouldRenderLink() {
+        if (variant === 'external') {
+            return (
+                <a
+                    className="custom-link__link"
+                    href={to}
+                    target={target}
+                    rel="noreferrer"
+                >
+                    {children}
+                </a>
+            );
+        }
+
+        return (
+            <Link className="custom-link__link" to={to}>
+                {children}
+            </Link>
+        );
     }
 
     return (
         <div className="custom-link">
             <div className="custom-link__wrapper">
-                <Link className="custom-link__link" to={to}>
-                    {children}
-                </Link>
+                {shouldRenderLink()}
                 {shouldRenderIcon()}
             </div>
         </div>
