@@ -7,7 +7,7 @@ function LevelBar({ level = 3 }) {
 
     useEffect(() => {
         shouldRenderLevelBars();
-    }, []);
+    }, [level]);
 
     function shouldRenderLevelBars() {
         let bars = [];
