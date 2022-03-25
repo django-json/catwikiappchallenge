@@ -22,9 +22,11 @@
     --grey-2: #e3e1dc;
     --grey-3: #e0e0e0;
     --bg-hover: rgba(151, 151, 151, 0.1);
+    --orange: #dec68b;
 
     /* Spacing | Global */
     --space-unit: 1em;
+    --space-xs: calc(0.5 * var(--space-unit));
     --space-sm: calc(0.7 * var(--space-unit));
     --space-md: calc(1.7 * var(--space-unit));
     --space-lg: calc(3 * var(--space-unit));
@@ -34,6 +36,7 @@
 html {
     box-sizing: border-box;
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -59,6 +62,12 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: var(--grey-1);
     border-radius: 24px;
+}
+
+/*Prevents background page from scrolling when the modal is open*/
+.ReactModal__Html--open,
+.ReactModal__Body--open {
+    overflow: hidden;
 }
 
 .material-icons {
