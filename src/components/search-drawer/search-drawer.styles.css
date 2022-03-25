@@ -1,7 +1,3 @@
-.search-drawer {
-    margin-top: var(--space-md);
-}
-
 .search-drawer__row {
     padding: var(--space-xl);
 }
@@ -33,9 +29,46 @@
     width: 400px;
 }
 
-/* Mobile search button style*/
+/* SearchBoxList Container */
+.search__searchboxlist {
+    position: relative;
+}
 
-.search-drawer__search-static {
+/* Search List */
+.search__searchboxlist > .search__list {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    padding: var(--space-sm);
+    border-radius: 24px;
+    background-color: var(--white-1);
+    margin-top: var(--space-sm);
+    width: 400px;
+    z-index: 99;
+}
+
+.search__searchboxlist > .search__list > .list {
+    padding: 0;
+    padding-right: var(--space-sm);
+    max-height: 220px;
+    overflow-y: scroll;
+}
+
+.search__searchboxlist > .search__list > .list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.search__searchboxlist > .search__list > .list::-webkit-scrollbar-track {
+    background: var(--white-2);
+}
+
+.search__searchboxlist > .search__list > .list::-webkit-scrollbar-thumb {
+    background-color: var(--grey-1);
+    border-radius: 24px;
+}
+
+/* SearchBox Static | Mobile View */
+.search__static {
     font-size: var(--text-sm);
     font-weight: 500;
     padding: 8px 14px;
@@ -47,12 +80,50 @@
     justify-content: space-between;
 }
 
-.search-drawer__search-static {
+.search__static {
     color: var(--brown-1);
 }
 
-.search-drawer__search-static > .material-icons {
+.search__static > .material-icons {
     font-size: 16px;
+}
+
+/* Search Modal Layout Styles */
+.search__modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    outline: none;
+}
+
+.search__modal--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--white-1);
+    overflow: none;
+    z-index: 9;
+}
+
+.search__modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xs) var(--space-sm);
+}
+
+.search__modal-content > .btn {
+    align-self: flex-end;
+    margin-bottom: var(--space-md);
+    background: none;
+}
+
+.search__modal-content > .btn:hover {
+    background-color: var(--bg-hover);
+    transition: 0.3s;
 }
 
 /* Most Searched Breeds */
