@@ -44,8 +44,8 @@ Under Construction...
 ![catwikiapp-screenshot3](https://user-images.githubusercontent.com/44185999/162391647-eb1629bd-0139-4411-832c-8657086c33dc.png)
 ![catwikiapp-screenshot4](https://user-images.githubusercontent.com/44185999/162391648-81ab8c1e-d90d-40ad-8722-d6349c91d337.png)
 
--   You can check the demo [here](https://catwikiappchallenge.netlify.app)
--   For the backend server source code, check [here](https://github.com/django-json/catwikiappchallenge-api)
+-   You can check the demo [here](https://catwikiappchallenge.netlify.app).
+-   For the backend server source code, check [here](https://github.com/django-json/catwikiappchallenge-api).
 -   This challenge is so adorable. The cute cats motivate me to finish this project as I want to interact with it and learn more about cats. On technicalities, the one that challenged me is how to store the users' search history and rank it from the most popular searched breed to the least and store that data using MongoDB and the implementation when accessing the data from database when the App is loaded so that the top most searched breeds will be displayed. Overall, I am so satisfied that I finished this Cat Wiki App project.
 
 ### Built With
