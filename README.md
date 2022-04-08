@@ -85,6 +85,9 @@ $ npm start
 
 -   [CSS - Custom Scrollbar](https://css-tricks.com/almanac/properties/s/scrollbar/)
 -   [Building a custom React media query hook for more responsive apps](https://www.netlify.com/blog/2020/12/05/building-a-custom-react-media-query-hook-for-more-responsive-apps/)
+-   [Handling Nested HTTP Requests Using the Fetch API](https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api)
+-   [React fetch data in for loop](https://www.codegrepper.com/code-examples/javascript/react+fetch+data+in+for+loop)
+-   [Using async/await with a forEach loop](https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop)
 
 ## Contact
 
