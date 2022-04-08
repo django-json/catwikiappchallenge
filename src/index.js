@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BreedsProvider from './providers/breeds/breeds.provider';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </BrowserRouter>,
+    <BreedsProvider>
+        <BrowserRouter>
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
+        </BrowserRouter>
+    </BreedsProvider>,
     document.getElementById('root')
 );
 

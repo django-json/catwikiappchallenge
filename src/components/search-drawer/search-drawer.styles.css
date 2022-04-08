@@ -126,6 +126,15 @@
     transition: 0.3s;
 }
 
+.search__modal-content > .search__list {
+    height: 100%;
+}
+
+.search__modal-content .list {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
 /* Most Searched Breeds */
 
 .search-drawer__row:last-child {

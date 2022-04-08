@@ -9,16 +9,18 @@ function MostSearchedBreedItem({ item }) {
     const navigate = useNavigate();
 
     function handleClick() {
-        navigate(`../breed-details/${item.id}`);
+        navigate(`../breed-details/${item.breeds[0].id}`);
     }
 
     return (
         <div className="mostsearchedbreed-item" onClick={handleClick}>
-            <Card photoURL={item.image.url} />
+            <Card photoURL={item.url} />
             <div>
-                <div className="mostsearchedbreed-item__title">{item.name}</div>
+                <div className="mostsearchedbreed-item__title">
+                    {item.breeds[0].name}
+                </div>
                 <div className="mostsearchedbreed-item__description">
-                    {item.description}
+                    {item.breeds[0].description}
                 </div>
             </div>
         </div>

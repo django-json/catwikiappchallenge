@@ -1,40 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React from 'react';
 import './breed-details.styles.css';
 
 import Card from '../../components/card/card.component';
 import LevelBar from '../../components/levelbar/levelbar.component';
 import PhotoGallery from '../../components/photo-gallery/photo-gallery.component';
 
-import { data } from '../../data';
-import { fetchWithRetry } from '../../utils/utils';
+function BreedDetailsPage({ breed, imageURLs }) {
+    function shouldRenderPhotoGallery() {
+        return imageURLs.length > 0 ? (
+            <PhotoGallery imageURLs={imageURLs} />
+        ) : (
+            <div style={{ paddingLeft: '1em', paddingBottom: '6em' }}>
+                Not Available
+            </div>
+        );
+    }
 
-function BreedDetailsPage() {
-    const { id } = useParams();
-    const breed = data.find((item) => item.id === id);
-    const [imageURLs, setImageURLs] = useState([]);
+    function shouldRenderHeroImage() {
+        return imageURLs.length > 0 ? (
+            <Card photoURL={imageURLs[1].url} />
+        ) : (
+            <Card photoURL={null} />
+        );
+    }
 
-    useEffect(() => {
-        fetchWithRetry(
-            `https://api.thecatapi.com/v1/images/search?breed_id=${id}&limit=8`
-        )
-            .then((res) => res.json())
-            .then((images) => {
-                console.log(images);
-                const urls = images.map((image) => {
-                    return { id: image.id, url: image.url };
-                });
-                setImageURLs(urls);
-            })
-            .catch((error) => console.error(error));
-    }, [id]);
-
-    return (
+    return breed ? (
         <div className="breed-details-page">
             <div className="breed-details-page__row">
                 <div className="breed-details-page__col">
-                    <Card photoURL={breed.image.url} />
+                    {shouldRenderHeroImage()}
                 </div>
                 <div className="breed-details-page__col">
                     <div className="breed-details-page__name">{breed.name}</div>
@@ -97,8 +91,20 @@ function BreedDetailsPage() {
             </div>
             <div className="breed-details-page__row">
                 <div className="breed-details-page__other">Other photos</div>
-                <PhotoGallery imageURLs={imageURLs} />
+                {shouldRenderPhotoGallery()}
             </div>
+        </div>
+    ) : (
+        <div
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '80vh',
+                paddingBottom: '100px'
+            }}
+        >
+            Sorry, page is not available for this breed. Please try another one.
         </div>
     );
 }

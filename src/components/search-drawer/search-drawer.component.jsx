@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 
 import './search-drawer.styles.css';
@@ -15,11 +15,13 @@ import CatBreedTitleItem from '../catbreedtitle-item/catbreedtitle-item.componen
 import { useMediaQuery } from '../../custom-hooks/useMediaQuery';
 import { useDebounce } from '../../custom-hooks/useDebounce';
 
-import { data } from '../../data';
+import { BreedsContext } from '../../providers/breeds/breeds.provider';
 
 Modal.setAppElement('#root');
 
 function SearchDrawer() {
+    const { searchBreedByName, getPopularBreedsPreview } =
+        useContext(BreedsContext);
     const mobileView = useMediaQuery('(max-width: 767.98px)');
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
@@ -28,8 +30,13 @@ function SearchDrawer() {
     const debouncedSearchValue = useDebounce(searchValue, 1000);
 
     useEffect(() => {
-        const filteredBreeds = filterBreedsByName(data, debouncedSearchValue);
-        setBreeds(filteredBreeds);
+        async function searchBreedByNameAsync() {
+            const searchResults = await searchBreedByName(debouncedSearchValue);
+            setBreeds(searchResults);
+        }
+        if (debouncedSearchValue) {
+            searchBreedByNameAsync();
+        }
     }, [debouncedSearchValue]);
 
     function closeModal() {
@@ -40,6 +47,10 @@ function SearchDrawer() {
         setModalIsOpen(true);
     }
 
+    function handleChange(e) {
+        setSearchValue(e.target.value);
+    }
+
     function shouldRenderList() {
         return breeds && breeds.length > 0 ? (
             <div className="search__list">
@@ -48,18 +59,46 @@ function SearchDrawer() {
         ) : null;
     }
 
-    function handleChange(e) {
-        setSearchValue(e.target.value);
+    function shouldRenderSearchBoxListDesktop(desktopView) {
+        return desktopView ? (
+            <div className="search__searchboxlist">
+                <SearchBox
+                    size="lg"
+                    placeholder="Enter your breed"
+                    onChange={handleChange}
+                />
+                {shouldRenderList()}
+            </div>
+        ) : null;
     }
 
-    function filterBreedsByName(breeds, name) {
-        if (breeds.length > 0 && name) {
-            const filteredBreeds = breeds.filter((breed) => {
-                return breed.name.toLowerCase().includes(name.toLowerCase());
-            });
-
-            return filteredBreeds;
-        }
+    function shouldRenderSearchBoxListMobile(mobileView) {
+        return mobileView ? (
+            <Fragment>
+                <div className="search__static" onClick={openModal}>
+                    <span>Search</span>
+                    <i className="material-icons">search</i>
+                </div>
+                <Modal
+                    className="search__modal"
+                    overlayClassName="search__modal--overlay"
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    contentLabel="Mobile Searchbox"
+                    closeTimeoutMS={200}
+                >
+                    <div className="search__modal-content">
+                        <Button iconAsLabel="close" onClick={closeModal} />
+                        <SearchBox
+                            size="md"
+                            placeholder="Enter your breed"
+                            onChange={handleChange}
+                        />
+                        {shouldRenderList()}
+                    </div>
+                </Modal>
+            </Fragment>
+        ) : null;
     }
 
     return (
@@ -67,44 +106,8 @@ function SearchDrawer() {
             <div className="search-drawer__row">
                 <Logo className="search-drawer__logo" />
                 <p>Get to know more about your cat breed</p>
-                {!mobileView ? (
-                    <div className="search__searchboxlist">
-                        <SearchBox
-                            size="lg"
-                            placeholder="Enter your breed"
-                            onChange={handleChange}
-                        />
-                        {shouldRenderList()}
-                    </div>
-                ) : (
-                    <Fragment>
-                        <div className="search__static" onClick={openModal}>
-                            <span>Search</span>
-                            <i className="material-icons">search</i>
-                        </div>
-                        <Modal
-                            className="search__modal"
-                            overlayClassName="search__modal--overlay"
-                            isOpen={modalIsOpen}
-                            onRequestClose={closeModal}
-                            contentLabel="Mobile Searchbox"
-                            closeTimeoutMS={200}
-                        >
-                            <div className="search__modal-content">
-                                <Button
-                                    iconAsLabel="close"
-                                    onClick={closeModal}
-                                />
-                                <SearchBox
-                                    size="md"
-                                    placeholder="Enter your breed"
-                                    onChange={handleChange}
-                                />
-                                {shouldRenderList()}
-                            </div>
-                        </Modal>
-                    </Fragment>
-                )}
+                {shouldRenderSearchBoxListDesktop(!mobileView)}
+                {shouldRenderSearchBoxListMobile(mobileView)}
             </div>
             <div className="search-drawer__row">
                 <div className="search-drawer__most-searched">
@@ -114,12 +117,16 @@ function SearchDrawer() {
                     <div className="search-drawer__discover">
                         66+ Breeds For you to discover
                     </div>
-                    <CustomLink
-                        to="mostsearchedbreeds"
-                        endIcon="arrow_right_alt"
-                    >
-                        see more
-                    </CustomLink>
+                    {getPopularBreedsPreview().length > 0 ? (
+                        <CustomLink
+                            to="mostsearchedbreeds"
+                            endIcon="arrow_right_alt"
+                        >
+                            see more
+                        </CustomLink>
+                    ) : (
+                        <span>Search more breeds to display...</span>
+                    )}
                 </div>
                 <div className="search-drawer__catbreeds-preview-container">
                     <MostSearchedBreedsPreview />
