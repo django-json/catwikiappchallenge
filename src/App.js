@@ -11,6 +11,7 @@ import ScrollToTop from './components/scroll-to-top/scroll-to-top.component';
 import BreedDetailsPageContainer from './pages/breed-details/breed-details.container';
 import MostSearchedBreedsPageContainer from './pages/mostsearchedbreeds/mostsearchedbreeds.container';
 import HomePage from './pages/home/home.component';
+import NotFoundPage from './pages/not-found/not-found.component';
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                     path="breed-details/:id"
                     element={<BreedDetailsPageContainer />}
                 />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <Footer />
         </div>

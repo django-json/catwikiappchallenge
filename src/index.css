@@ -1,5 +1,6 @@
 :root {
     --global-font: 'Montserrat', sans-serif;
+    --not-found-font: 'Mystery Quest', cursive;
 
     /* Font Sizes | Global */
     --text-xxxl: 48px;

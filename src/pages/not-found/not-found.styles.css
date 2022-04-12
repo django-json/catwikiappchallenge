@@ -1,0 +1,25 @@
+.not-found-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+}
+
+.not-found-page__image {
+    width: 500px;
+}
+
+.not-found-page__image > img {
+    width: 100%;
+}
+
+.not-found-page__text {
+    font-family: var(--not-found-font);
+    font-size: 5rem;
+    color: var(--black);
+    padding-top: var(--space-md);
+}
+
+.not-found-page__404 {
+    font-size: 10rem;
+}
