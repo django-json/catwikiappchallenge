@@ -24,5 +24,6 @@
 @media (max-width: 374.98px) {
     .App {
         margin: var(--space-sm);
+        margin-bottom: 0;
     }
 }
