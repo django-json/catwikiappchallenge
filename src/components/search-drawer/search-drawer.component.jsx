@@ -26,18 +26,33 @@ function SearchDrawer() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [breeds, setBreeds] = useState([]);
+    const [hasError, setHasError] = useState(false);
 
     const debouncedSearchValue = useDebounce(searchValue, 1000);
 
     useEffect(() => {
         async function searchBreedByNameAsync() {
             const searchResults = await searchBreedByName(debouncedSearchValue);
-            setBreeds(searchResults);
+            if (searchResults) {
+                setBreeds(searchResults);
+                setHasError(false);
+            } else {
+                resetBreeds();
+                setHasError(true);
+            }
         }
+
         if (debouncedSearchValue) {
             searchBreedByNameAsync();
+        } else {
+            resetBreeds();
+            setHasError(false);
         }
     }, [debouncedSearchValue]);
+
+    function resetBreeds() {
+        setBreeds([]);
+    }
 
     function closeModal() {
         setModalIsOpen(false);
@@ -56,7 +71,9 @@ function SearchDrawer() {
             <div className="search__list">
                 <List items={breeds} itemRenderer={CatBreedTitleItem} />
             </div>
-        ) : null;
+        ) : (
+            hasError && <div className="search__list">No results found.</div>
+        );
     }
 
     function shouldRenderSearchBoxListDesktop(desktopView) {
