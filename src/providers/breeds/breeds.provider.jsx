@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 
+import { BreedsAPI } from '../../api/breeds';
 import { fetchWithRetry } from '../../utils/utils';
 
 export const BreedsContext = createContext({
@@ -50,24 +51,20 @@ function BreedsProvider({ children }) {
     }
 
     async function getPopularBreeds() {
-        return await fetchWithRetry(
-            'http://localhost:3001/popular-breeds',
-            {},
-            5
-        )
+        return await fetchWithRetry(`${BreedsAPI}/popular-breeds`, {}, 5)
             .then((res) => res.json())
             .catch((error) => console.error(error));
     }
 
     async function getBreedDetailsByReferenceID(id) {
-        return await fetchWithRetry(`http://localhost:3001/image/${id}`)
+        return await fetchWithRetry(`${BreedsAPI}/image/${id}`)
             .then((res) => res.json())
             .catch((error) => console.error(error));
     }
 
     // Only fetch the images of a specific breed by breed id
     async function getBreedImages(id) {
-        return await fetchWithRetry(`http://localhost:3001/images/${id}`)
+        return await fetchWithRetry(`${BreedsAPI}/images/${id}`)
             .then((res) => res.json())
             .catch((error) => console.error(error));
     }
@@ -87,7 +84,7 @@ function BreedsProvider({ children }) {
         };
 
         fetchWithRetry(
-            'http://localhost:3001/popular-breeds',
+            `${BreedsAPI}/popular-breeds`,
             {
                 method: 'POST',
                 headers: {
@@ -106,7 +103,7 @@ function BreedsProvider({ children }) {
     }
 
     function getPopularBreedsPreview() {
-        // Get only the top 4 popular breeds at maximum to display at the homepage
+        // Get only the top 4 popular breeds to display at the homepage
         if (popularBreeds.length > 4) {
             return sliceArray(popularBreeds, 0, 4);
         } else {
@@ -128,11 +125,7 @@ function BreedsProvider({ children }) {
     }
 
     async function searchBreedByName(name) {
-        return await fetchWithRetry(
-            `http://localhost:3001/breeds/${name}`,
-            {},
-            5
-        )
+        return await fetchWithRetry(`${BreedsAPI}/breeds/${name}`, {}, 5)
             .then((res) => res.json())
             .then((searchResults) => {
                 return searchResults;
