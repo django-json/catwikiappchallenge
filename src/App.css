@@ -18,6 +18,7 @@
 @media (max-width: 767.98px) {
     .App {
         margin: 18px;
+        margin-bottom: 0;
     }
 }
 
