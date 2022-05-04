@@ -1,5 +1,6 @@
 {
     "name": "catwikiappchallenge",
+    "homepage": "http://www.catwikiappchallenge.com",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
