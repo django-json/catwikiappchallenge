@@ -1,1 +1,1 @@
-export const BreedsAPI = 'https://catwikiappchallenge-api.herokuapp.com';
+export const BreedsAPI = 'https://catwikiappchallenge-api.onrender.com';
